@@ -1,0 +1,16 @@
+<script>
+var domain = '<%= Configuration.domain %>';
+var contextRoot = '<%= contextRoot %>';
+</script>
+
+<script src="<%= contextRoot %>/js/lib/jquery-1.11.2.min.js"></script>
+<script src="<%= contextRoot %>/js/lib/bootstrap.min.js"></script>
+<script src="<%= contextRoot %>/js/lib/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+<script src="<%= contextRoot %>/js/convertCountryName.js"></script>
+<script src="<%= contextRoot %>/js/plugins.js"></script>
+<script src="<%= contextRoot %>/js/modernizr.js"></script>
+<script src="<%= contextRoot %>/js/navbar.js"></script>
+<script src="<%= contextRoot %>/js/jquery.sldr.js"></script>
+<script src="<%= contextRoot %>/js/qrcode.js"></script>
+<script src="<%= contextRoot %>/js/qrcode.min.js"></script>

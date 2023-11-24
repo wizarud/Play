@@ -1,0 +1,152 @@
+<%@ page pageEncoding="UTF-8" %>
+<%@ page import="java.util.*" %>
+<script>
+	
+    var finished_rendering = function() {
+  	  var spinner = document.getElementById("fbspinner");
+  	  if (spinner) {
+  	  	  spinner.removeAttribute("style");
+  	  	  spinner.removeChild(spinner.childNodes[0]);  		  
+  	  }
+  	}   
+    
+    window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '<%= System.getenv("facebook_appId") %>',
+          cookie     : true,
+          xfbml      : true,
+          version    : '<%= System.getenv("facebook_apiVersion") %>'
+        });
+          
+        FB.AppEvents.logPageView();
+         
+      };
+	      
+      (function(d, s, id){
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          js.src = "https://connect.facebook.net/en_US/sdk.js";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+      	  	    
+	  function statusChangeCallback(response) {
+		  
+		  console.log("statusChangeCallback " + response.status);
+		  
+		  if (response.status === "connected") {
+			  
+			  signInApi(response.authResponse.accessToken);
+		  }
+		  
+		  <% if (!isLogin) { %>
+		  
+		  else {
+			  // logout();
+  		  }
+		  
+		  <% } %>
+	  }
+	  
+	  function checkLoginState(params) {
+		  
+		  console.log("checkLoginState" + params);
+		  
+		  FB.getLoginStatus(function(response) {
+			  
+			console.log("FB.getLoginStatus" + response);
+		    statusChangeCallback(response);
+		    
+		  });
+		  
+	  }
+	  	  
+	  function signInApi(accessToken) {
+		  
+		  console.log("signInApi " + accessToken);
+		  
+		<% if (session.getAttribute("accountId") == null) { %>
+		
+		/**
+		* Cloning contextName
+		*/
+		var contextName = '<%= request.getParameter("contextName") == null ? "": request.getParameter("contextName") %>';
+		var url = "/fbSignIn";
+		overlayOn('loader');
+		  
+		var lang = navigator.language;
+		var langCode = lang.split("-");
+		var data = "act=" + accessToken + "&language=" + langCode[0] + "&contextName=" + contextName;
+		var ajax = new XMLHttpRequest();
+		ajax.open("POST", url, true);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send(data);
+
+		ajax.onreadystatechange = function() {
+		  	if (ajax.readyState == 4 && ajax.status == 200) {		 
+				var data = ajax.responseText;
+				var json = JSON.parse(data);
+				if (json.status == "success") { 
+					
+					location.reload();
+										
+				} else {
+					
+					console.log("(ToT)ๆ " + JSON.stringify(json));
+					logout();
+					
+				}
+			}
+		  	overlayOff('loader');
+		}	
+		<% } else { %>
+			var sessionAccountId = '<%=session.getAttribute("accountId")%>';
+		<% } %>
+	  }
+	  
+	  function fbLogoutUser() {
+		  try {
+			   FB.getLoginStatus(function(response) {
+			       if (response && response.status === 'connected') {
+			           FB.logout(function(response) {
+			        	   relocate();
+			           });
+			       }else{
+			    	   relocate();
+			       }
+			   });
+		   }catch(e) {
+			   relocate();
+		   }
+		  
+		}
+	  
+	  function relocate() {
+		  
+		  //window.location.href = contextRoot;
+		  window.location.href = window.location.protocol + '//' + domain + contextRoot;
+	  };
+	  
+	  function logout() {
+
+		  <% if (session.getAttribute("accountId") != null) { %>
+		 	var xhr = new XMLHttpRequest();
+		 	xhr.open("GET", contextRoot + "/logout", true);
+		 	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		 	xhr.send();
+
+		 	xhr.onreadystatechange = function() {
+		 	  	if (xhr.readyState == 4 && xhr.status == 200) {		 
+		 			if (xhr.responseText == "success") {
+		 				
+		 				fbLogoutUser();
+		 				
+		 			} else {
+		 				
+		 				relocate();
+		 			}
+		 		}
+		 	}	
+		 	<% } %>
+		};
+	</script>

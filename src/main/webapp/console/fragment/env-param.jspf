@@ -1,0 +1,30 @@
+<%
+	boolean isLogin = false;
+	String accountId = "";
+	
+	if (session != null) {
+		if (session.getAttribute("accountId") != null) {
+			isLogin = true;
+			accountId = (String) session.getAttribute("accountId");
+		} else {
+			response.sendRedirect("../index.jsp");
+		}
+	}
+	
+%>
+
+<script type="text/javascript">
+var domain = '<%= System.getenv("domain") %>';
+var contextRoot = '<%= application.getContextPath() %>';
+var accountId = '<%= accountId %>';
+var botId;
+
+if (localStorage.botId) {
+	botId = localStorage.botId;
+} else {
+	botId = '';
+}
+
+var sending_text = '<fmt:message key="btt.sending" />';
+var notification_text = '<fmt:message key="btt.notification" />';
+</script>

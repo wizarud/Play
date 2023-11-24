@@ -1,0 +1,35 @@
+<script src="js/lib/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="js/lib/bootstrap.min.js" type="text/javascript"></script>
+<script src="js/lib/light-bootstrap-dashboard.js" type="text/javascript"></script>
+
+<script src="js/util.js" type="text/javascript"></script>
+<script src="js/qrcode.js" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+function onSelectBotListChanged(changed) {
+	botId = $('#selectbotlist').val();
+	localStorage.botId = botId;
+	console.log("#selectbotlist changed to " + botId);
+	if (onBotListLoaded) {
+		onBotListLoaded(changed);
+	}
+}
+
+$("#selectbotlist").change(function() {
+	onSelectBotListChanged(true);
+});	
+
+$(document).ready(function() {
+
+	var pagename = location.pathname.substring(location.pathname.lastIndexOf("/") + 1) + "";
+	pagename = pagename.replace(".jsp","");
+	$("."+pagename).addClass("active");
+	$("#PageName").html(pagename.replace("-"," "));
+	
+	$.when(getBotList(contextRoot + "/console/context/" + accountId + "/", "#selectbotlist")).done(function() {	
+		onSelectBotListChanged();
+	});
+	
+});
+</script>

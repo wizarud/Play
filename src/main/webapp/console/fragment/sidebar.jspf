@@ -1,0 +1,138 @@
+<div class="sidebar" data-color="purple" data-image="images/sidebar-5.jpg">
+	<div class="sidebar-wrapper">
+		<div class="logo" align="center">
+			<a href="/"><img src="images/wayobot-icon.png" width="50" height="50"/></a>
+		</div>
+		
+		<ul class="nav">
+			<li class="dashboard">
+				<a href="dashboard.jsp"> 
+					<i class="pe-7s-graph"></i>
+					<p><fmt:message key="sidbar.dashboard" /></p>
+				</a>
+			</li>
+			<li class="new">
+				<a href="new.jsp"> 
+					<i class="pe-7s-file"></i>
+					<p>New..</p>
+				</a>
+			</li>			
+			<li>
+				<a href="#" onclick="javascript:window.open(contextRoot + '/x/' + contextName(botId), '_blank')"> 
+					<i class="pe-7s-play"></i>
+					<p>Play</p>
+				</a>
+			</li>
+			<li>
+				<div class="logo" align="center" style="border-top:1px solid rgba(255, 255, 255, 0.2)">
+					<h3><fmt:message key="sidbar.templates" /></h3>
+				</div>
+			</li>
+			<li class="presentation_wizard">
+				<a href="presentation_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>Presentation</p>
+				</a>
+			</li>
+			<li class="faq_wizard">
+				<a href="faq_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>FAQ</p>
+				</a>
+			</li>
+			<li class="form_wizard">
+				<a href="form_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>Form</p>
+				</a>
+			</li>
+			<li class="quiz_wizard">
+				<a href="quiz_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>Quiz</p>
+				</a>
+			</li>
+			<li class="catalog_wizard">
+				<a href="catalog_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>Catalog</p>
+				</a>
+			</li>
+			<li>
+				<div class="logo" align="center" style="border-top:1px solid rgba(255, 255, 255, 0.2)">
+					<h3><fmt:message key="sidbar.developer" /></h3>
+				</div>
+			</li>
+			<li class="diagram">
+				<a href="diagram.jsp" target="_blank">
+					<i class="pe-7s-shuffle"></i>
+					<p>Flow Designer</p>
+				</a>
+			</li>
+			<li class="Chai">
+				<a href="chai.jsp">
+					<i class="pe-7s-note"></i>
+					<p>CHAI Script</p>
+				</a>
+			</li>
+			<li>
+				<div class="logo" align="center" style="border-top:1px solid rgba(255, 255, 255, 0.2)">
+					<h3><fmt:message key="sidbar.channel" /></h3>
+				</div>
+			</li>
+			<li class="facebook">
+				<a href="facebook.jsp"> 
+					<i class="pe-7s-chat"></i>
+					<p>Messenger</p>
+				</a>
+			</li>
+			<li class="line">
+				<a href="line.jsp"> 
+					<i class="pe-7s-chat"></i>
+					<p>LINE</p>
+				</a>
+			</li>
+			<li class="api">
+				<a href="api.jsp"> 
+					<i class="pe-7s-plugin"></i>
+					<p><fmt:message key="sidbar.api" /></p>
+				</a>
+			</li>
+			<li>
+				<div class="logo" align="center" style="border-top:1px solid rgba(255, 255, 255, 0.2)">
+					<h3><fmt:message key="sidbar.account" /></h3>
+				</div>
+			</li>
+			<li class="showcase">
+				<a href="showcase.jsp"> 
+					<i class="pe-7s-photo"></i>
+					<p><fmt:message key="sidbar.showcase" /></p>
+				</a>
+			</li>
+			<li class="chatbox">
+				<a href="chatbox.jsp"> 
+					<i class="pe-7s-settings"></i>
+					<p><fmt:message key="sidbar.chatbotscript" /></p>
+				</a>
+			</li>
+			<li class="profile">
+				<a href="profile.jsp"> 
+					<i class="pe-7s-user"></i>
+					<p><fmt:message key="sidbar.profile" /></p>
+				</a>
+			</li>
+			<li class="push-service">
+				<a href="push-service.jsp"> 
+					<i class="pe-7s-bell"></i>
+					<p><fmt:message key="sidbar.pushservice" /></p>
+				</a>
+			</li>
+			<li class="report">
+				<a href="report.jsp"> 
+					<i class="pe-7s-box1"></i>
+					<p>Report</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
