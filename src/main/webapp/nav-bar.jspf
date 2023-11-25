@@ -65,7 +65,8 @@
 							
 		                    <li class="login"><a onclick="overlayOn('login')" style="cursor: pointer; width: 150px;"><fmt:message key="btt.login" /></a></li>
 							<li class="login"><a onclick="overlayOn('register')" style="cursor: pointer; width: 150px;"><fmt:message key="btt.register" /></a></li>					
-		                    <li class="login"><a href="https://wayos.yiem.ai/academy" target="_blank" style="cursor: pointer; width: 150px;">Academy</a></li>
+		                    <li class="login"><a href="https://wayos.yiem.ai/th" target="_blank" style="cursor: pointer; width: 200px;">Our Services</a></li>
+		                    <li class="login"><a href="https://wayos.yiem.ai/courses" target="_blank" style="cursor: pointer; width: 200px;">Training Courses</a></li>
 							
 					<% } %>
 						<%-- Rich Menus --%>
