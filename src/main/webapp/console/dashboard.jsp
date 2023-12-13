@@ -31,6 +31,7 @@
 										</button>
 									</a>
 																		
+									<%-- 
 									<a href="presentation_wizard.jsp" class="col-md-2" style="padding: 10px 10px 0 0;">
 										<button class="btn btn-default btn-block" /> <i class="pe-7s-magic-wand"></i>
 											<br>
@@ -66,6 +67,18 @@
 											<br>
 											<br>
 											Quiz
+											<br>
+											<br>											
+										</button>
+									</a>
+									
+ 									--%>
+ 																		
+									<a href="thread_wizard.jsp" class="col-md-2" style="padding: 10px 10px 0 0;">
+										<button class="btn btn-default btn-block" /> <i class="pe-7s-magic-wand"></i>
+											<br>
+											<br>
+											Thread
 											<br>
 											<br>											
 										</button>

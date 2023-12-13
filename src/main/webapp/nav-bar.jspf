@@ -35,13 +35,11 @@
 					
 					//For highlight TAG Menu
 					java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("com.wayos.i18n.text");
-					String t = request.getParameter("tag");
-					if (t==null) {
-						t = (String) request.getAttribute("tag");
+					String role = request.getParameter("role");
+					if (role==null) {
+						role = "";
 					}
-					if (t==null) {
-						t = "";
-					}
+					
 					String h = "style=\"width: 150px; color: #ffffff; background-color:#64c583\"";
 					String a = "style=\"width: 150px\"";					
 					
@@ -57,16 +55,18 @@
 	
 					<% } else { %>
 					
+							<% if (role.equals("admin")) { %>
 							<li class="login" style="width: auto">
 								<a class="fbLogin">
 									<fb:login-button config_id="1445734566264166" onlogin="checkLoginState();"></fb:login-button>
 								</a>
 							</li>
+							<% } %>
 							
 		                    <li class="login"><a onclick="overlayOn('login')" style="cursor: pointer; width: 150px;"><fmt:message key="btt.login" /></a></li>
-							<li class="login"><a onclick="overlayOn('register')" style="cursor: pointer; width: 150px;"><fmt:message key="btt.register" /></a></li>					
-		                    <li class="login"><a href="https://wayos.yiem.ai/th" target="_blank" style="cursor: pointer; width: 200px;">Our Services</a></li>
-		                    <li class="login"><a href="https://wayos.yiem.ai/courses" target="_blank" style="cursor: pointer; width: 200px;">Training Courses</a></li>
+							<li class="login"><a onclick="overlayOn('register')" style="cursor: pointer; width: 150px;"><fmt:message key="btt.register" /></a></li>
+		                    <li class="login"><a href="https://wayos.yiem.ai/th" target="_blank" style="cursor: pointer; width: 200px;">About Us</a></li>
+		                    <li class="login"><a href="https://wayos.yiem.ai/academy" target="_blank" style="cursor: pointer; width: 200px;">Academy</a></li>
 							
 					<% } %>
 						<%-- Rich Menus --%>

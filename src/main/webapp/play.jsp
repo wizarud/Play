@@ -11,6 +11,8 @@
 <!--<![endif]-->
 <head>
 <title>wayOS</title>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3401953410218555"
+     crossorigin="anonymous"></script>
 <% 
 
 	String contextRoot = application.getContextPath();
@@ -90,17 +92,24 @@ body, div, section, iframe {
 	   		
 		  	let socialSection = document.getElementById("social");
 	 	  	socialSection.style.background = props.borderColor;			
-			
+				 	  	
 			document.body.style.backgroundColor = props.borderColor;
+			
+		  	let footerSection = document.getElementById("footer");
+		  	footerSection.style.background = props.borderColor;			
 		}
-
-	</script>	
-
-	<section class="context">
-		<div class="col-md-12" style="text-align: center; padding: 0; touch-action: none">
 		
-			<wayos-let data-url="<%= playURL %>" data-message="<%= message %>" data-chat="yes" data-speak="yes" data-onload="applyTheme" style="height: 59vh"></wayos-let>
-				
+		window.onorientationchange = (event) => {
+			
+			location.reload();
+			
+		};
+			
+	</script>
+
+	<section id="footer" class="context">
+		<div class="col-md-12" style="text-align: center; padding: 0; touch-action: none; background-color: darkGray">
+			<wayos-let data-url="<%= playURL %>" data-message="<%= message %>" data-chat="yes" data-speak="yes" data-onload="applyTheme" style="height: 59vh"></wayos-let>				
 		</div>
 	</section>
 			

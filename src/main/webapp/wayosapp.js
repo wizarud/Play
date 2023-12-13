@@ -486,9 +486,12 @@ class FrameUX {
 		let menuArray = menusObject.menus;
 		let html = '';
 		
+		let isSlideMenu = false;
+		
 		if (menuArray.length>1) {
 			
 			html += "<div style=\"overflow: auto; white-space: nowrap;\">";
+			isSlideMenu = true;
     		
 		}
 				
@@ -504,7 +507,7 @@ class FrameUX {
 	        
 	        menuObject = menuArray[i];
 	        
-	        html += this.menu(menuObject);
+	        html += this.menu(menuObject, isSlideMenu);
     			    			
 	        if (menuArray.length>1) {
 				
@@ -537,7 +540,7 @@ class FrameUX {
 		return "<iframe src=\"" + src + "\" scrolling=\"no\" frameborder=\"0\" allowfullscreen></iframe>";
 	}	
 	
-	menu (menuObject) {
+	menu (menuObject, isSlideMenu) {
 		
 		let html = '';
 		let choice;
@@ -568,7 +571,7 @@ class FrameUX {
         			
         	html += this.image(menuObject.imageURL, clickEvent);
     				
-        } else {
+        } else if (isSlideMenu) {
         			
         	/**
              * Default Image for Slide Menu Only
@@ -1045,23 +1048,27 @@ class Wayoslet extends HTMLElement {
 				-moz-box-sizing: border-box; /* Firefox, other Gecko */
 				box-sizing: border-box;  
 				font-size: 16px;
+				background-color: lightGray;
 			}
 			.wayos-file-button {
 			    width: 8%;
-				border: 1px solid #DDDDDD;
+				border: 0;
 		   		background: #3498db;
 		    	color: white;
 		   		line-height: 40px;
 		    	margin-bottom: 10px;
+		    	margin-right: 5px;
 				cursor: pointer;
 			}
 			.wayos-button {
-			    width: 45%;
+			    width: 42%;
 				border: 1px solid #DDDDDD;
+				border-radius: 10px;
 		   		background: #3498db;
 		    	color: white;
 		   		line-height: 40px;
 		    	margin-bottom: 10px;
+		    	margin-right: 5px;
 				cursor: pointer;
 			}
 			.wayos-loader {

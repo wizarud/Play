@@ -28,6 +28,13 @@
 					<h3><fmt:message key="sidbar.templates" /></h3>
 				</div>
 			</li>
+			<li class="thread_wizard">
+				<a href="thread_wizard.jsp">
+					<i class="pe-7s-magic-wand"></i>
+					<p>Thread</p>
+				</a>
+			</li>
+			<%--
 			<li class="presentation_wizard">
 				<a href="presentation_wizard.jsp">
 					<i class="pe-7s-magic-wand"></i>
@@ -52,6 +59,7 @@
 					<p>Quiz</p>
 				</a>
 			</li>
+			 --%>
 			<li class="catalog_wizard">
 				<a href="catalog_wizard.jsp">
 					<i class="pe-7s-magic-wand"></i>

@@ -590,7 +590,7 @@ textarea::-ms-input-placeholder
     color: #82ca9c;
 }
 .navbar-default .collapse .login a{
-    color: #82ca9c;
+    color: white;
     border: 1px solid white;
     border-radius: 20px;
     padding: 4px 30px;
